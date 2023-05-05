@@ -47,9 +47,6 @@ https://api.mapbox.com/styles/v1/stevage/ciywkc4dg000l2rmfzqopmwd1?access_token=
             //minZoom: 15
         });
 
-
-
-
         const tb = (window.tb = new Threebox(
             map,
             map.getCanvas().getContext('webgl'),
@@ -59,6 +56,23 @@ https://api.mapbox.com/styles/v1/stevage/ciywkc4dg000l2rmfzqopmwd1?access_token=
         ));
 
         map.on('style.load', () => {
+
+            map.addLayer({
+                'id': 'sky-day',
+                'type': 'sky',
+                'paint': {
+                    'sky-type': 'gradient',
+                    'sky-opacity': [
+                        'interpolate',
+                        ['exponential', 0.1],
+                        ['zoom'],
+                        10, 0,
+                        12, 1
+                    ],
+                    'sky-opacity-transition': { 'duration': 500 }
+                }
+            });
+
             map.addLayer({
                 id: 'custom-threebox-model',
                 type: 'custom',
@@ -90,6 +104,7 @@ https://api.mapbox.com/styles/v1/stevage/ciywkc4dg000l2rmfzqopmwd1?access_token=
             });
         });
 
+        /*
         marker = new mapboxgl.Marker();
 
         map.on('click', (event) => {
@@ -97,6 +112,7 @@ https://api.mapbox.com/styles/v1/stevage/ciywkc4dg000l2rmfzqopmwd1?access_token=
             console.log(coordinates.lng, coordinates.lat);
             marker.setLngLat(coordinates).addTo(map);
         });
+        */
 
         map.addControl(new mapboxgl.NavigationControl());
     </script>
