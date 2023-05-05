@@ -1,3 +1,7 @@
+Experimenting with Mapbox and 3D models.
+
+https://markmclaren.github.io/medieval/
+
 https://gist.github.com/stevage/eef4001fe752c7c6b82af3237a102b8c
 
 https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model-threebox/
